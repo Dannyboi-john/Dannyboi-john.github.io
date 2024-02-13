@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <title>Pixelate</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+</head>
+
+<body>
+  <div class="title-container">
+    <div class="title">Welcome to Pixelate, the crochet pattern generator!</div>
+  <!--  <div class="dark-mode-div" id="dark">Dark mode</div> -->
+  </div>
+
+  <div class="input-grid">
+
+    <div class="get-grid-size">
+      <div class="input1">
+        <input type="text" placeholder="Enter the length of pixelated image" id="userInputx">
+      </div>
+      <div class="input2">
+        <input type="text" placeholder="Enter the height of the pixelated image" id="userInputy">
+      </div>
+      <div class="pixelate-button-container">
+        <button class="pixelate-button-class" id="pixelate-button" onclick="pixelate(document.getElementById('userInputx').value , document.getElementById('userInputy').value )">Pixelate Image Alone</button>
+      </div>
+    </div>
+
+    <div class="get-grid-size">
+      <div class="grid-input1">
+        <input type="text" id="grid-constuctor-x" placeholder="Enter the length of the project (stitches)">
+      </div>
+      <div class="grid-input2">
+        <input type="text" id="grid-constructor-y" placeholder="Enter the height of the project (rows)">
+      </div>
+      <div class="button-container">
+        <button class="enter-button" id="myBtn" onclick="getInput()">Pixelate on Grid</button>
+      </div>
+    </div>
+
+    <div 
+      class="photo-reciever" 
+      id="drop-zone"
+      ondrop="dropHandler(event)"
+      ondragover="dragOverHandler(event)"
+      ondragleave="dragLeaveHandler(event)">
+      Drag and drop images here! or <span class="browse">browse</span>
+      <input type="file" id="browse-images" hidden/></div>
+  </div>
+
+  <div id="img-notice" class="img-notice"></div>
+
+  <canvas id="myCanvas" class="canvas-class"></canvas>
+
+
+  <div class="grid-buttons" id="grid-buttons-id">
+    <div class="color-button-container" id="color-button-container-id"></div>
+    <div class="color-picker-container" id="color-picker-container-id"></div>
+    <div class="clear-cells-container" id="clear-cells-container-id"></div>
+    <div class="hide-image-container" id="hide-image-container-id"></div>
+  </div>
+
+  
+  <div id="grid-supercontainer">
+    <div id="grid-container"></div>
+  </div>
+
+  <dialog class="modal" id="modal-id">
+    <h2>Select a color to shade the cells!</h2>
+    <input type="color" id="color-picker-id" class="color-picker">
+    <button class="close-button" id="close-button-id">Close</button>
+    <button class="eraser" id="eraser-id">Erase</button>
+  </dialog>
+
+
+
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
